@@ -21,6 +21,7 @@ var (
 // demoTrojectCmd represents the demoTroject command
 var demoTrojectCmd = &cobra.Command{
 	Use:   "demoTroject",
+	Aliases: []string{"start"},
 	Short: "A brief description of your command",
 	Long: `A longer description that spans multiple lines and likely contains examples
 and usage of using your command. For example:
@@ -34,7 +35,7 @@ to quickly create a Cobra application.`,
 		demoTroject, err := telebot.NewBot(telebot.Settings{
 			URL:    "",
 			Token:  TeleToken,
-			Poller: &tele.LongPoller{Timeout: 10 * time.Second},
+			Poller: &telebot.LongPoller{Timeout: 10 * time.Second},
 		})
 
 		if err != nil {
@@ -42,9 +43,16 @@ to quickly create a Cobra application.`,
 			return
 		}
 
-		demoTroject.Handle(telebot.OnText, func(m tele.Context) error {
+		demoTroject.Handle(telebot.OnText, func(c telebot.Context) error {
 
-			log.Println(m.Message().PayLoad, m.Text())
+			log.Println(c.Message().Payload, c.Text())
+			payload := c.Message().Payload
+
+			switch payload {
+				case "hello":
+					err = c.Send(fmt.Sprintf("Hello I'm DemoTroject bot %s!", appVersion))
+				
+			}
 
 			return err
 		})

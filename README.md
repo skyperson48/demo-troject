@@ -1,12 +1,12 @@
-### Hi everyone 👋
+# Hi everyone 👋
 
-# Telegram Bot - Demo Project
+## Telegram Bot - Demo Project
 
 🌱 Welcome to my first Telegram bot project!
 
 https://t.me/skyperson48_bot
 
-## How to Create Your Own Bot ⚡ 
+### How to Create Your Own Bot ⚡ 
 
 1. **Clone the Repository**
    - Copy this repository to your own GitHub account.

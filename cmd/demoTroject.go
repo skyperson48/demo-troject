@@ -1,14 +1,13 @@
 /*
 Copyright © 2024 NAME HERE <EMAIL ADDRESS>
-
 */
 package cmd
 
 import (
 	"fmt"
-    "os"
-	"time"
 	"log"
+	"os"
+	"time"
 
 	"github.com/spf13/cobra"
 	telebot "gopkg.in/telebot.v3"
@@ -18,7 +17,7 @@ var (
 	// TeleToken bot
 	TeleToken = os.Getenv("TELE_TOKEN")
 )
- 
+
 // demoTrojectCmd represents the demoTroject command
 var demoTrojectCmd = &cobra.Command{
 	Use:   "demoTroject",
@@ -36,8 +35,7 @@ to quickly create a Cobra application.`,
 			URL:    "",
 			Token:  TeleToken,
 			Poller: &tele.LongPoller{Timeout: 10 * time.Second},
-
-	})
+		})
 
 		if err != nil {
 			log.Fatalf("Please check TELE_TOKEN env variable. %s", err)
@@ -54,8 +52,6 @@ to quickly create a Cobra application.`,
 		demoTroject.Start()
 
 	},
-
-
 }
 
 func init() {

@@ -20,9 +20,9 @@ var (
 
 // demoTrojectCmd represents the demoTroject command
 var demoTrojectCmd = &cobra.Command{
-	Use:   "demoTroject",
+	Use:     "demoTroject",
 	Aliases: []string{"start"},
-	Short: "A brief description of your command",
+	Short:   "A brief description of your command",
 	Long: `A longer description that spans multiple lines and likely contains examples
 and usage of using your command. For example:
 
@@ -49,9 +49,9 @@ to quickly create a Cobra application.`,
 			payload := c.Message().Payload
 
 			switch payload {
-				case "hello":
-					err = c.Send(fmt.Sprintf("Hello I'm DemoTroject bot %s!", appVersion))
-				
+			case "hello":
+				err = c.Send(fmt.Sprintf("Hello I'm DemoTroject bot %s!", appVersion))
+
 			}
 
 			return err

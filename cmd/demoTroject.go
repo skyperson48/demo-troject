@@ -8,7 +8,6 @@ import (
 	"log"
 	"os"
 	"time"
-
 	"github.com/spf13/cobra"
 	telebot "gopkg.in/telebot.v3"
 )
@@ -31,7 +30,7 @@ This application is a tool to generate the needed files
 to quickly create a Cobra application.`,
 	Run: func(cmd *cobra.Command, args []string) {
 
-		fmt.Println("demoTroject %s started", appVersion)
+		fmt.Printf("demoTroject %s started", appVersion)
 		demoTroject, err := telebot.NewBot(telebot.Settings{
 			URL:    "",
 			Token:  TeleToken,
@@ -45,7 +44,7 @@ to quickly create a Cobra application.`,
 
 		demoTroject.Handle(telebot.OnText, func(c telebot.Context) error {
 
-			log.Println(c.Message().Payload, c.Text())
+			log.Printf(c.Message().Payload, c.Text())
 			payload := c.Message().Payload
 
 			switch payload {
